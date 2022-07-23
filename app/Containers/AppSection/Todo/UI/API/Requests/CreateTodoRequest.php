@@ -35,7 +35,11 @@ class CreateTodoRequest extends ParentRequest
     public function rules(): array
     {
         return [
-            // 'id' => 'required',
+            'tittle' => 'required|min:3|max:155',
+            'description' => 'max:3000',
+            'status' => 'integer',
+            'expectation_of_completion' => 'date_format:Y-m-d',
+            'completion_date' => 'date_format:Y-m-d',
         ];
     }
 

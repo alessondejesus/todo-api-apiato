@@ -20,15 +20,19 @@ class TodoTransformer extends ParentTransformer
         $response = [
             'object' => $todo->getResourceKey(),
             'id' => $todo->getHashedKey(),
-        ];
-
-        return $this->ifAdmin([
-            'real_id' => $todo->id,
+            'tittle' => $todo->tittle,
+            'description' => $todo->description,
+            'status' => $todo->status,
+            'expectation_of_completion' => $todo->expectation_of_completion,
+            'completion_date' => $todo->completion_date,
             'created_at' => $todo->created_at,
             'updated_at' => $todo->updated_at,
             'readable_created_at' => $todo->created_at->diffForHumans(),
             'readable_updated_at' => $todo->updated_at->diffForHumans(),
-            // 'deleted_at' => $todo->deleted_at,
+        ];
+
+        return $this->ifAdmin([
+            'real_id' => $todo->id,
         ], $response);
     }
 }
