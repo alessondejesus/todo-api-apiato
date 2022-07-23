@@ -9,6 +9,7 @@ use App\Containers\AppSection\Authentication\Tasks\CallOAuthServerTask;
 use App\Containers\AppSection\Authentication\Tasks\MakeRefreshCookieTask;
 use App\Containers\AppSection\Authentication\UI\API\Requests\RefreshProxyRequest;
 use App\Ship\Parents\Actions\Action as ParentAction;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 
 class ApiRefreshProxyForWebClientAction extends ParentAction
@@ -38,6 +39,7 @@ class ApiRefreshProxyForWebClientAction extends ParentAction
 
         $responseContent = app(CallOAuthServerTask::class)->run($sanitizedData, $request->headers->get('accept-language'));
         $refreshCookie = app(MakeRefreshCookieTask::class)->run($responseContent['refresh_token']);
+        $responseContent['user'] = Auth::user();
 
         return [
             'response_content' => $responseContent,
