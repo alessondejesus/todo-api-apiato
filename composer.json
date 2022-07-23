@@ -41,6 +41,7 @@
         "laravel/telescope": "^4.9",
         "laravel/tinker": "^2.7",
         "lcobucci/clock": "2.1.0",
+        "spatie/enum": "^3.13",
         "wikimedia/composer-merge-plugin": "^2.0.1"
     },
     "require-dev": {
