@@ -8,6 +8,7 @@ use App\Containers\AppSection\Todo\Tasks\CreateTodoTask;
 use App\Containers\AppSection\Todo\UI\API\Requests\CreateTodoRequest;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Actions\Action as ParentAction;
+use Illuminate\Support\Facades\Auth;
 
 class CreateTodoAction extends ParentAction
 {
@@ -20,8 +21,14 @@ class CreateTodoAction extends ParentAction
     public function run(CreateTodoRequest $request): Todo
     {
         $data = $request->sanitizeInput([
-            // add your request data here
+            'tittle',
+            'description',
+            'status',
+            'expectation_of_completion',
+            'completion_date'
         ]);
+
+        $data['user_id'] = Auth::id();
 
         return app(CreateTodoTask::class)->run($data);
     }
