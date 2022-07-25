@@ -11,6 +11,11 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Validation\Rules\Password;
 
+/**
+ * @property int $id
+ * @property string $email
+ **/
+
 class User extends ParentUserModel implements MustVerifyEmail
 {
     use AuthorizationTrait;

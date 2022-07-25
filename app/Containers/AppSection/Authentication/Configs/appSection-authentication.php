@@ -25,12 +25,12 @@ return [
 
     'clients' => [
         'web' => [
-            'id' => env('CLIENT_WEB_ID'),
-            'secret' => env('CLIENT_WEB_SECRET'),
+            'id' => env('CLIENT_API_ID'),
+            'secret' => env('CLIENT_API_SECRET'),
         ],
         'mobile' => [
-            'id' => env('CLIENT_MOBILE_ID'),
-            'secret' => env('CLIENT_MOBILE_SECRET'),
+            'id' => env('CLIENT_API_ID'),
+            'secret' => env('CLIENT_API_SECRET'),
         ],
 
         // add your other clients here
