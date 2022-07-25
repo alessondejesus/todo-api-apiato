@@ -11,6 +11,8 @@ class TodoRepository extends ParentRepository
      */
     protected $fieldSearchable = [
         'id' => '=',
+        'tittle' => 'like',
+        'status' => '='
         // ...
     ];
 }

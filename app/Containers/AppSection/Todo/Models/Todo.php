@@ -2,9 +2,9 @@
 
 namespace App\Containers\AppSection\Todo\Models;
 
+use App\Containers\AppSection\User\Models\User;
 use App\Ship\Parents\Models\Model as ParentModel;
 use Carbon\Carbon;
-use Illuminate\Support\Collection;
 
 
 /**
@@ -19,7 +19,7 @@ use Illuminate\Support\Collection;
  * @property Carbon $updated_at
  *
  * Relationships
- * @property Collection $user
+ * @property User $user
  */
 class Todo extends ParentModel
 {
@@ -44,4 +44,10 @@ class Todo extends ParentModel
      * A resource key to be used in the serialized responses.
      */
     protected string $resourceKey = 'Todo';
+
+    // TODO: best way of relationship on PORTO arch
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

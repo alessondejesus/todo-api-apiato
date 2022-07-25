@@ -37,7 +37,7 @@ class CreateTodoRequest extends ParentRequest
         return [
             'tittle' => 'required|min:3|max:155',
             'description' => 'max:3000',
-            'status' => 'integer',
+            'status' => 'string',
             'expectation_of_completion' => 'date_format:Y-m-d',
             'completion_date' => 'date_format:Y-m-d',
         ];

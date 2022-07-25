@@ -24,7 +24,9 @@ class GetAllTodosTask extends ParentTask
         $user = Auth::user();
 
         $query = $this->addRequestCriteria()
-            ->repository;
+            ->repository
+            ->with('user')
+            ->orderBy('created_at', 'desc');
 
         if (!$user->hasAdminRole()) {
             $query->scopeQuery(function ($query) use ($user) {
@@ -32,6 +34,6 @@ class GetAllTodosTask extends ParentTask
             });
         }
 
-        return $query->paginate();
+        return $query->paginate(1);
     }
 }

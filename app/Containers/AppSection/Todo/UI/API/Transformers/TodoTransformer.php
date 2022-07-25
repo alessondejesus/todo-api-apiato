@@ -25,8 +25,11 @@ class TodoTransformer extends ParentTransformer
             'status' => $todo->status,
             'expectation_of_completion' => $todo->expectation_of_completion,
             'completion_date' => $todo->completion_date,
-            'created_at' => $todo->created_at,
-            'updated_at' => $todo->updated_at,
+            'created_at' => $todo->created_at->format('Y/m/d'),
+            'updated_at' => $todo->updated_at->format('Y/m/d'),
+            'user' => [
+              'email' => $todo->user->email,
+            ],
             'readable_created_at' => $todo->created_at->diffForHumans(),
             'readable_updated_at' => $todo->updated_at->diffForHumans(),
         ];
