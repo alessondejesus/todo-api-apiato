@@ -13,3 +13,6 @@ Aqui nao da pra criar usuarios, alterar os TODO, status deles, etc..
 Pq? pq tive que dar prioridade a outras coisas
 
 Aqui usei arquitetura PORTO junto com APIATO, ele da varios comandos e a arquitetura agiliza algumas coisas... 
+
+
+### OBS: aqui e no vue usei gitflow
