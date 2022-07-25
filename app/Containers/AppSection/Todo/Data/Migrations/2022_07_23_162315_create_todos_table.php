@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->text('description')->nullable();
             $table->timestamp('expectation_of_completion')->nullable();
             $table->timestamp('completion_date')->nullable();
-            $table->integer('status')->default(TodoStatusEnum::pendent());
+            $table->string('status')->default(TodoStatusEnum::pendent());
             $table->foreignId('user_id')->constrained();
 
             $table->timestamps();
